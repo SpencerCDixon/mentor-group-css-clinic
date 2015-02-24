@@ -1,0 +1,64 @@
+body {
+  background: #e5f3f4;
+}
+
+p, h1, h2, h3, h4, h5 {
+  font-family: "Roboto Slab", serif;
+}
+
+nav.top-bar {
+  background: #37becc;
+  height: 3.2rem;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #37becc;
+  height: 3.2rem;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: #2A939E;
+  height: 3.2rem;
+}
+
+h1.title {
+  color: #ed197b;
+  text-align: center;
+}
+
+h2 {
+  color: #707070;
+}
+
+.panel {
+  background: white;
+}
+
+.status-buttons {
+  list-style: none;
+}
+
+.status-buttons li {
+  display: inline-block;
+}
+
+.status-buttons li a {
+  margin: 0 1em;
+}
+
+.status-buttons li a.alert {
+  background-color: #ed197b;
+}
+
+.status-buttons li a.info {
+  background-color: #85cd15;
+}
+
+.status-buttons li a.success {
+  background-color: #37becc;
+}
+
+.status-buttons li a.secondary {
+  background-color: #707070;
+}
+

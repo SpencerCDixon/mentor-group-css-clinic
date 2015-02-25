@@ -10,9 +10,5 @@ $(function() {
 
 });
 
-.hidden {
-  display: none;
-}
-
 
 

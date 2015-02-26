@@ -1,17 +1,26 @@
 require 'sinatra'
 require 'pry'
+require 'sinatra/json'
+require 'sinatra/respond_with'
 
-users = [
-  { email: 'example1@gmail.com', first_name: 'Joe', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example2@gmail.com', first_name: 'Jack', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example3@gmail.com', first_name: 'Jill', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example4@gmail.com', first_name: 'Jane', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example5@gmail.com', first_name: 'John', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example6@gmail.com', first_name: 'Jimmy', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example7@gmail.com', first_name: 'Jason', last_name: 'Jones', status: 'Sleeping', project: 'CSS' },
-  { email: 'example8@gmail.com', first_name: 'Jordan', last_name: 'Jones', status: 'Sleeping', project: 'CSS' }
+USERS = [
+  { first_name: 'Joe' },
+  { first_name: 'John' }
 ]
 
+def create_user(params)
+  USERS << { first_name: params["first_name"] }
+end
+
 get '/' do
-  erb :home
+  erb :home, locals: { users: USERS }
+end
+
+post '/users/new' do
+  create_user(params)
+
+  respond_to do |format|
+    format.html { redirect '/' }
+    format.json { json recent_user: params["first_name"] }
+  end
 end

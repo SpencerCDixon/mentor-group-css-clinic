@@ -3,18 +3,21 @@
 
   <div class="row">
     <a href="#" id="add-content">Click to add content!<a>
-    <div id="dynamic-content">
-
-    </div>
-
-
+    <div id="dynamic-content"></div>
 
     <h2>Create a new user</h2>
 
-    <form action="new" method="post">
+    <form id="create-user" action="/users/new" method="post">
       <input type="text" name="first_name" id="first_name" value="" />
-      <input type="text" name="last_name" id="first_name" value="" />
+      <input type="submit" class="button alert tiny" name="" value="Create User" />
     </form>
+
+    <h2>All Users</h2>
+    <ul class="users">
+    <% users.each do |user| %>
+       <li><%= user[:first_name] %> <%= user[:last_name] %></li>
+    <% end %>
+    </ul>
 
   </div>
 
